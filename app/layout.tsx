@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import React from "react";
+import "./globals.css";
 
 const publicPages = ["/auth/signin"];
 

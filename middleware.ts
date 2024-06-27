@@ -4,11 +4,11 @@ import type { NextRequest } from "next/server";
 import ipRangeCheck from "ip-range-check";
 
 const allowedIPRanges = [
-  "24.168.1.1/24",
-  "70.62.44.0/24",
-  "205.251.160.0/24",
-  "24.52.92.0/24",
-  //g'::1' //- IPv6 loopback not included to require login
+  process.env.ALLOWED_IP_ONE!,
+  process.env.ALLOWED_IP_TWO!,
+  process.env.ALLOWED_IP_THREE!,
+  process.env.ALLOWED_IP_FOUR!,
+  //'::1' //- IPv6 loopback not included to require login
 ];
 
 export function middleware(req: NextRequest) {
