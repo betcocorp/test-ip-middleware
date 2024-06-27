@@ -1,8 +1,10 @@
 "use client";
 // app/layout.tsx
-import { SessionProvider, useSession } from "next-auth/react";
+import { SessionProvider } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import React from "react";
 
 const publicPages = ["/auth/signin"];
 
@@ -42,7 +44,11 @@ function AuthChecker({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-export default function MyApp({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body>

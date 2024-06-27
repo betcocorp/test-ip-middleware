@@ -1,34 +1,31 @@
 // app/api/auth/[...nextauth]/route.ts
-import NextAuth from 'next-auth'
-import CredentialsProvider from 'next-auth/providers/credentials'
+import NextAuth from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import { NextAuthConfig } from "next-auth";
+import { NextRequest, NextResponse } from "next/server";
 
-const authOptions = {
+const authOptions: NextAuthConfig = {
   providers: [
     CredentialsProvider({
-      // The name to display on the sign-in form (e.g. 'Sign in with...')
-      name: 'Credentials',
+      name: "Credentials",
       credentials: {
-        username: { label: 'Username', type: 'text', placeholder: 'jsmith' },
-        password: { label: 'Password', type: 'password' }
+        username: { label: "Username", type: "text" },
+        password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
-        // Here you can add logic to authenticate the user with credentials
-        // For example, you could fetch user data from your database
-        if (credentials?.username === 'test' && credentials?.password === 'test') {
-          // If login is successful, return user object
-          return { id: 1, name: 'Test User' }
+        if (
+          credentials?.username === "test" &&
+          credentials?.password === "test"
+        ) {
+          // Ensure the `id` is a string to match the expected `User` type
+          return { id: "1", name: "Test User" }; // Note: `id` is now a string
         } else {
-          // If login fails, return null
-          return null
+          return null;
         }
-      }
-    })
+      },
+    }),
   ],
   pages: {
-    signIn: '/auth/signin',
+    signIn: "/auth/signin",
   },
-}
-
-const handler = NextAuth(authOptions)
-
-export { handler as GET, handler as POST }
+};
