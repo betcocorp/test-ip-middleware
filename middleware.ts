@@ -4,9 +4,10 @@ import type { NextRequest } from "next/server";
 import ipRangeCheck from "ip-range-check";
 
 const allowedIPRanges = [
-  "24.168.1.1/24", // Example range
-  "70.62.44.0/24", // Another example range
-  "205.251.160.0/24", // Another example range
+  "24.168.1.1/24",
+  "70.62.44.0/24",
+  "205.251.160.0/24",
+  "24.52.92.0/24",
   //g'::1' //- IPv6 loopback not included to require login
 ];
 
