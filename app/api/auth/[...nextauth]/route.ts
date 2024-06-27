@@ -32,10 +32,10 @@ const authOptions: NextAuthConfig = {
 const handler = NextAuth(authOptions);
 
 // Define the GET and POST handlers compatible with Next.js route handlers
-export const GET = async (req: NextRequest) => {
+export async function GET(req: NextRequest) {
   return new NextResponse("Response body here", { status: 200 });
-};
+}
 
-export const POST = async (req: NextRequest) => {
+export async function POST(req: NextRequest) {
   return new NextResponse("Response body here", { status: 200 });
-};
+}
