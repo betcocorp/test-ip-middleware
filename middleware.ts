@@ -8,6 +8,7 @@ const allowedIPRanges = [
   process.env.ALLOWED_IP_TWO!,
   process.env.ALLOWED_IP_THREE!,
   process.env.ALLOWED_IP_FOUR!,
+  process.env.ALLOWED_IP_FIVE!,
   //'::1' //- IPv6 loopback not included to require login
 ];
 
